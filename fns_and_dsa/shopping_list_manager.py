@@ -14,17 +14,21 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == '1':
-            addition = input('Enter the item to add:')
+            addition = input("Enter the item to add: ")
             shopping_list.append(addition)
-            pass
         elif choice == '2':
-            removed = input("What do you want to remove from your shopping list?? \n")
-            shopping_list.remove(str(removed))
-            pass
+            removed = input("Enter the item to remove: ")
+            if removed in shopping_list:
+                shopping_list.remove(removed)
+            else:
+                print("Item not found in the shopping list.")
         elif choice == '3':
-            for i in range(len(shopping_list)):
-                print(f'- {shopping_list[i]}')
-            pass
+            if shopping_list:
+                print("Shopping List:")
+                for item in shopping_list:
+                    print(f"- {item}")
+            else:
+                print("Your shopping list is empty.")
         elif choice == '4':
             print("Goodbye!")
             break
