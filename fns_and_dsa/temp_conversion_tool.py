@@ -1,44 +1,24 @@
-# Global Conversion Factors
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
 
 def convert_to_celsius(fahrenheit):
-    """
-    Convert Fahrenheit to Celsius using the global conversion factor.
-    """
-    celsius = (float(fahrenheit) - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
-    return celsius
-
+    celsius = (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
+    return f'Temperature is {celsius:.2f}°C'
 
 def convert_to_fahrenheit(celsius):
-    """
-    Convert Celsius to Fahrenheit using the global conversion factor.
-    """
-    fahrenheit = (float(celsius) * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
-    return fahrenheit
-
+    fahrenheit = float(celsius + 32) * CELSIUS_TO_FAHRENHEIT_FACTOR
+    return f'Temperature is {fahrenheit:.2f}°F'
 
 def main():
-    while True:
-        try:
-            temperature = float(input("Enter the temperature to convert: "))
-            unit = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").upper()
-            
-            if unit == 'C':
-                converted_temperature = convert_to_fahrenheit(temperature)
-                original_unit = 'F'
-                print(f"{temperature:.1f}°C is {converted_temperature:.1f}°{original_unit}")
-            elif unit == 'F':
-                converted_temperature = convert_to_celsius(temperature)
-                original_unit = 'C'
-                print(f"{temperature:.1f}°F is {converted_temperature:.1f}°{original_unit}")
-            else:
-                raise ValueError("Invalid unit. Please enter 'C' or 'F'.")
-            
-            break
-        except ValueError:
-            print("Invalid Temperature. Please enter a numeric value.")
+    temp = input("Enter the temperature to be converted: ")
+    cel_or_fahr = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").strip().upper()
+
+    if cel_or_fahr == 'C':
+        convert_to_fahrenheit(temp)
+    elif cel_or_fahr == 'F':
+        convert_to_celsius(temp)
+    else:
+        print("Invalid input. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
 
 if __name__ == "__main__":
     main()
-
