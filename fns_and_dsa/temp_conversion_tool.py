@@ -6,13 +6,17 @@ def convert_to_celsius(fahrenheit):
     """
     Convert Fahrenheit to Celsius using the global conversion factor.
     """
-    return (float(fahrenheit) - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
+    celsius = (float(fahrenheit) - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
+    return celsius
+
 
 def convert_to_fahrenheit(celsius):
     """
     Convert Celsius to Fahrenheit using the global conversion factor.
     """
-    return (float(celsius) * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
+    fahrenheit = (float(celsius) * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
+    return fahrenheit
+
 
 def main():
     """
